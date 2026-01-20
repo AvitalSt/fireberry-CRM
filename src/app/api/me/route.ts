@@ -6,14 +6,14 @@ export async function GET() {
     const url = "https://api.fireberry.com/api/v2/user/info";
 
     if (!token) {
-       console.error("Missing FIREBERRY_API_TOKEN in environment variables");
-    } 
+      console.error("Missing FIREBERRY_API_TOKEN in environment variables");
+    }
 
     const res = await fetch(url, {
       method: "GET",
       headers: {
+        "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json",
-        "token": token || "",
       },
     });
 
