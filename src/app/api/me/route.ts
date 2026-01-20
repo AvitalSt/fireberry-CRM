@@ -5,11 +5,15 @@ export async function GET() {
     const token = process.env.FIREBERRY_API_TOKEN;
     const url = "https://api.fireberry.com/api/v2/user/info";
 
+    if (!token) {
+      console.error("Missing FIREBERRY_API_TOKEN in environment variables");
+    }
+    
     const res = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        token: token || "",
+        "token": token || "",
       },
     });
 
