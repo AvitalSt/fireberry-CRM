@@ -40,18 +40,25 @@ export function HomePage() {
     }
   };
 
+  const handleSearchCustomer = (searchText: string) => {
+    if (window.top && searchText.trim()) {
+      const searchUrl = `https://app.fireberry.com/app/views/1?q=${encodeURIComponent(searchText)}`;
+      window.top.location.href = searchUrl;
+    }
+  };
+
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
-        <div className="mb-6 text-right">
+        <div>
           <h1 className="text-2xl font-bold">
             {greeting} {userName}
           </h1>
         </div>
 
-        <CustomerSearch />
-
         <div className="space-y-4">
+          <CustomerSearch onSearch={handleSearchCustomer} />
+
           <CardButton
             title="מעבר להוספת לקוחה"
             subtitle={
