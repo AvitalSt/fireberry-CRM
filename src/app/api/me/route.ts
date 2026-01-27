@@ -1,11 +1,11 @@
+import { fireberryLinks } from "@/config/fireberryLinks";
 import { NextResponse } from "next/server";
 
-const FIREBERRY_BASE_URL = "https://app.fireberry.com/api/v2";
-
 export async function GET() {
-  const TOKEN_ID = process.env.FIREBERRY_API_TOKEN ||'';
+  const TOKEN_ID = process.env.FIREBERRY_API_TOKEN || "";
+  
   try {
-    const res = await fetch(`${FIREBERRY_BASE_URL}/user/info`, {
+    const res = await fetch(fireberryLinks.userInfo, {
       headers: {
         tokenid: TOKEN_ID,
         "Content-Type": "application/json",
@@ -13,14 +13,14 @@ export async function GET() {
     });
 
     if (!res.ok) {
-      console.warn("Fireberry /user/info returned", res.status);
-      return NextResponse.json({ name: "משתמשת" });
+      console.error(`Fireberry API Error: ${res.status}`);
+      return NextResponse.json({ name: "" });
     }
 
     const data = await res.json();
-    return NextResponse.json({ name: data.fullName || "משתמשת" });
+    return NextResponse.json({ name: data.fullName || "" });
   } catch (err) {
-    console.error("Fireberry /user/info request failed:", err);
-    return NextResponse.json({ name: "משתמשת" });
+    console.error("Connection Error:", err);
+    return NextResponse.json({ name: "" });
   }
 }
