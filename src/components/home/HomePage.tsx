@@ -4,10 +4,13 @@ import { CardButton } from "@/components/ui/CardButton";
 import { fireberryLinks } from "@/config/fireberryLinks";
 import { useState, useEffect } from "react";
 import { CustomerSearch } from "./CustomerSearch";
+import { HelpPanel } from "../ui/HelpPanel";
+import { Info } from "lucide-react";
 
 export function HomePage() {
   const [userName, setUserName] = useState("");
   const [greeting, setGreeting] = useState("");
+  const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -50,11 +53,31 @@ export function HomePage() {
 
         <div className="space-y-4">
           <CardButton
-            title="צור לקוחה"
-            subtitle="פתיחה מהירה של טופס לקוחה חדשה"
-            icon="➕"
+            title="מעבר להוספת לקוחה"
+            subtitle={
+              <div className="flex items-center gap-2">
+                לחצי על כפתור ה-חדש הירוק להוספת לקוחה
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowHelp(true);
+                  }}
+                  className="cursor-pointer"
+                >
+                  <Info className="w-5 h-5 text-gray-400 hover:text-purple-600 cursor-pointer transition" />
+                </span>
+              </div>
+            }
             onClick={handleCreateCustomer}
           />
+          {showHelp && (
+            <HelpPanel
+              open={showHelp}
+              onClose={() => setShowHelp(false)}
+              image="/add_new_customer.jpg"
+              title="איך מוסיפים לקוחה חדשה?"
+            />
+          )}
         </div>
       </div>
     </main>

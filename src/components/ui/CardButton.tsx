@@ -2,7 +2,7 @@ import { CardButtonProps } from "@/models/types/CardButton.types";
 
 export function CardButton({ title, subtitle, icon, onClick }: CardButtonProps) {
   return (
-    <a
+    <button
       onClick={onClick}
       className="
         block
@@ -25,6 +25,6 @@ export function CardButton({ title, subtitle, icon, onClick }: CardButtonProps) 
           {subtitle && <div className="text-sm text-gray-500">{subtitle}</div>}
         </div>
       </div>
-    </a>
+    </button>
   );
 }
