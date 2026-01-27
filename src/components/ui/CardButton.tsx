@@ -17,20 +17,12 @@ export function CardButton({ title, subtitle, icon, href }: CardButtonProps) {
       "
     >
       <div className="flex items-center justify-between gap-4">
-        <div className="text-2xl">
-          {icon}
-        </div>
+        <div className="text-2xl">{icon}</div>
 
         <div className="text-right">
-          <div className="text-lg font-semibold">
-            {title}
-          </div>
+          <div className="text-lg font-semibold">{title}</div>
 
-          {subtitle && (
-            <div className="text-sm text-gray-500">
-              {subtitle}
-            </div>
-          )}
+          {subtitle && <div className="text-sm text-gray-500">{subtitle}</div>}
         </div>
       </div>
     </a>

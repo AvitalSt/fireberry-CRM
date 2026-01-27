@@ -47,8 +47,8 @@ export function HomePage() {
             title="צור לקוחה"
             subtitle="פתיחה מהירה של טופס לקוחה חדשה"
             icon="➕"
-            href={fireberryLinks.createCustomer}
-          /> 
+            href="/create-customer"
+          />
         </div>
       </div>
     </main>
