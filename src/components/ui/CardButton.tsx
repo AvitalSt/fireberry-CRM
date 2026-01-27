@@ -1,4 +1,4 @@
-import { CardButtonProps } from "@/models/types/CardButton.types";
+import { CardButtonProps } from "@/models/types/CardButtonProps.type";
 
 export function CardButton({
   title,
@@ -11,7 +11,7 @@ export function CardButton({
       onClick={onClick}
       className="block w-full rounded-2xl bg-white p-5 border shadow-sm hover:shadow-md transition active:scale-[0.99]"
     >
-<div className="flex flex-row-reverse items-center justify-between gap-4">
+      <div className="flex flex-row-reverse items-center justify-between gap-4">
         <div className="text-2xl">{icon}</div>
 
         <div>

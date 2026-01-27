@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   const TOKEN_ID = process.env.FIREBERRY_API_TOKEN || "";
-  
+
   try {
     const res = await fetch(fireberryLinks.userInfo, {
       headers: {
