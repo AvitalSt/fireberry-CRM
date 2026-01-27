@@ -31,15 +31,9 @@ export function HelpPanel({ open, image, title, onClose }: HelpPanelProps) {
           <Image
             src={image}
             alt={title || "עזרה"}
-            width={900}
-            height={700}
+            width={3000}
+            height={900}
             className="rounded-lg shadow-md border border-gray-200 cursor-zoom-in hover:shadow-lg transition-shadow"
-            onClick={(e) => {
-              const img = e.currentTarget as HTMLElement;
-              if (img.requestFullscreen) {
-                img.requestFullscreen();
-              }
-            }}
           />
         </div>
       </div>
