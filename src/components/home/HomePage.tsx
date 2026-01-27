@@ -38,11 +38,12 @@ export function HomePage() {
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-5xl">
-        <div>
-          <h1 className="text-2xl font-bold">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl font-bold">
             {greeting} {userName}
           </h1>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
           <CustomerSection />
           <ContactSection />
