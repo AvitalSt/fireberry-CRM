@@ -31,6 +31,10 @@ export function HomePage() {
     loadUser();
   }, []);
 
+  const handleCreateCustomer = () => {
+    window.location.href = fireberryLinks.createCustomer;
+  };
+
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
@@ -47,7 +51,7 @@ export function HomePage() {
             title="צור לקוחה"
             subtitle="פתיחה מהירה של טופס לקוחה חדשה"
             icon="➕"
-            href="/create-customer"
+            onClick={handleCreateCustomer}
           />
         </div>
       </div>

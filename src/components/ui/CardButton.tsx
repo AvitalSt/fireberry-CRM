@@ -1,9 +1,9 @@
 import { CardButtonProps } from "@/models/types/CardButton.types";
 
-export function CardButton({ title, subtitle, icon, href }: CardButtonProps) {
+export function CardButton({ title, subtitle, icon, onClick }: CardButtonProps) {
   return (
     <a
-      href={href}
+      onClick={onClick}
       className="
         block
         rounded-2xl
