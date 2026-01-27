@@ -32,7 +32,9 @@ export function HomePage() {
   }, []);
 
   const handleCreateCustomer = () => {
-    window.top!.location.href = fireberryLinks.createCustomer;
+    if (window.top) {
+      window.top.location.href = fireberryLinks.createCustomer;
+    }
   };
 
   return (
